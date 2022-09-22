@@ -93,7 +93,7 @@ class IET7600Plus:
         data = self.ser.read_until(b'\n').decode("utf-8")
         return data
     
-    def measure_data(self,measurement_dalay:float = 1):
+    def measure_data(self, measurement_dalay:float = 1) -> str:
         
         """""Function:
             
@@ -211,7 +211,7 @@ class IET7600Plus:
             """
         self._send_command(f'conf:tdel {delay}')
         
-    def set_num_avg(self, average:int):
+    def set_num_avg(self, average:int) -> None:
         
         """Function:
             
@@ -356,20 +356,21 @@ class IET7600Plus:
     #     Parameters:
             
     #         """
-    # def sweep_parameter(self):
+    def sweep_parameter(self, param: str) -> None:
+        """Function: Define parameter to sweep
+            
+        Parameters:
+        F: frequency
+        V: voltage
+        I: current
+        """
+        self._send_command(f'conf:swe:par {param}')
+
+    def sweep_begin(self, param_value: float) -> None:
                 
-    #     """Function:
-            
-    #     Parameters:
-            
-    #         """
-    # def sweep_begin(self):
-                
-    #     """Function:
-            
-    #     Parameters:
-            
-    #         """
+        """Function: Define begin value for sweep
+        """
+        self._send_command(f'conf:swe:beg {param_value}')
     # def sweep_end(self):
                 
     #     """Function:
@@ -391,13 +392,13 @@ class IET7600Plus:
     #     Parameters:
             
     #         """
-    # def sweep_enable(self):
-                
-    #     """Function:
+    def sweep_enable(self, toggle_param: str='ON') -> None:
+        """Function:
+            Set the sweep function ON or OFF
             
-    #     Parameters:
-            
-    #         """
+        Parameters:
+        """
+        self._send_command(f'conf:swe:swe {toggle_param}')
     # def sweep_valid(self):
                 
     #     """Function:
