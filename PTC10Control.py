@@ -2,7 +2,7 @@
 """
 Created on Fri Aug  5 10:38:37 2022
 
-@author: Microprobe_Station
+@author: Todd Muller
 """
 
 import telnetlib

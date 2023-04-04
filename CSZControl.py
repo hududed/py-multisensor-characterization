@@ -2,7 +2,7 @@
 """
 Created on Wed Aug 10 18:19:00 2022
 
-@author: Microprobe_Station
+@author: Todd Muller
 """
 
 from pyModbusTCP.client import ModbusClient

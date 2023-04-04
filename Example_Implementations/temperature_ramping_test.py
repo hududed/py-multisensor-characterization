@@ -2,7 +2,7 @@
 """
 Created on Fri Aug 12 16:15:45 2022
 
-@author: toddm
+@author: Todd Muller
 """
 
 from PTC10Control import PTC10Control

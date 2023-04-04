@@ -2,7 +2,7 @@
 """
 Created on Tue Sep  6 11:13:43 2022
 
-@author: Microprobe_Station
+@author: Todd Muller
 """
 
 from IET7600PlusControl import IET7600Plus

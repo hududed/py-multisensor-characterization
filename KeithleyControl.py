@@ -2,7 +2,7 @@
 """
 Created on Thu Sep  8 08:43:42 2022
 
-@author: Microprobe_Station
+@author: Todd Muller
 """
 
 import serial

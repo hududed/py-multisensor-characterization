@@ -2,15 +2,9 @@
 """
 Created on Mon Sep 12 17:10:55 2022
 
-@author: Microprobe_Station
+@author: Todd Muller
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Sep  6 11:13:43 2022
-
-@author: Microprobe_Station
-"""
 
 
 from IET7600PlusControl import IET7600Plus

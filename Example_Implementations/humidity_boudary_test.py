@@ -2,28 +2,10 @@
 """
 Created on Mon Sep 12 17:27:15 2022
 
-@author: Microprobe_Station
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Sep  6 11:13:43 2022
-
-@author: Microprobe_Station
+@author: Todd Muller
 """
 
 
-
-# c = []
-# ct = []
-# pt = []
-# # def Driver():
-# iet = IET7600Plus()
-
-# iet.set_frequency(frequency=1000)
-
-# iet.set_AC_test_type('V')
-# iet.set_AC_signal_value(0.5)
 
 from IET7600PlusControl import IET7600Plus
 import numpy as np
@@ -40,8 +22,6 @@ import re
 wait_time = 20*60
 platform_temp_record = []
 chamber_temp_record = []
-
-#def driver():
     
 ptc10 = PTC10Control('169.254.106.13')
 ezt = EZTControl('169.254.106.15')
@@ -127,16 +107,6 @@ def enviornment_setpoint_time(temperature, humidity, delay_time):
             
         time.sleep(5)
 
-
-# # time.sleep(60*30)
-# for humidity in np.linspace(0,90,200):
-#     enviornment_setpoint_time(22, humidity, 10)
-# set_temperature(30)
-# ezt.set_humidity_SP(1)
-# time.sleep(60*30)
-# set_temperature(0)
-# time.sleep(60*5)
-
 for temp in np.linspace(0,50,10):
     enviornment_setpoint_time(temp, 1, 100)
 
@@ -211,18 +181,6 @@ with pd.ExcelWriter(f'{file_directory}\\Correlation Table - {file_name}.xlsx') a
     for column in data.columns:
         df = data.corr()[column].sort_values(ascending=False)
         df.to_excel(writer, sheet_name=column)
-#%% 
-
-
-
-#%%
-
-
-
-
-
-#%%
-
 
 temp_sets = list(data.groupby('Chamber Temperature SP (°C)'))
 temp = []
@@ -275,7 +233,6 @@ time.sleep(60*20)
 #%%   
 ptc10.__del__()
 ezt.__del__()
-#driver()
 
 
 
