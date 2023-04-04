@@ -6,19 +6,6 @@ Created on Tue Aug 23 17:32:18 2022
 """
 
 
-
-
-# c = []
-# ct = []
-# pt = []
-# # def Driver():
-# iet = IET7600Plus()
-
-# iet.set_frequency(frequency=1000)
-
-# iet.set_AC_test_type('V')
-# iet.set_AC_signal_value(0.5)
-
 from IET7600PlusControl import IET7600Plus
 import numpy as np
 import time

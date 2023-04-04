@@ -13,18 +13,6 @@ Created on Tue Sep  6 11:13:43 2022
 """
 
 
-
-# c = []
-# ct = []
-# pt = []
-# # def Driver():
-# iet = IET7600Plus()
-
-# iet.set_frequency(frequency=1000)
-
-# iet.set_AC_test_type('V')
-# iet.set_AC_signal_value(0.5)
-
 from IET7600PlusControl import IET7600Plus
 import numpy as np
 import time
@@ -184,25 +172,6 @@ def enviornment_setpoint_time(temperature, humidity, delay_time):
             
         time.sleep(5)
 
-
-
-
-# set_temperature(15)
-# ezt.set_humidity_SP(1)
-# for i in range(25):
-#     time.sleep(60)
-#     print(i)
-
-# set_temperature(10)
-# for i in range(10):
-#     time.sleep(60)
-#     print(i)
-
-# set_temperature(22)
-# for i in range(3):
-#     time.sleep(60)
-#     print(i)
-
 for humidity in np.linspace(55,65,100):
     enviornment_setpoint_time(22, humidity, 5)
 
@@ -229,8 +198,6 @@ Measuring the temperature resistance sensitivity for LIG at the 22°C and a rang
 of 65% to 75% relative humidity.
 device humidity. 
 """
-
- 
 
  
 path = Path(os.getcwd())

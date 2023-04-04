@@ -12,19 +12,6 @@ Created on Tue Sep  6 11:13:43 2022
 @author: Microprobe_Station
 """
 
-
-
-# c = []
-# ct = []
-# pt = []
-# # def Driver():
-# iet = IET7600Plus()
-
-# iet.set_frequency(frequency=1000)
-
-# iet.set_AC_test_type('V')
-# iet.set_AC_signal_value(0.5)
-
 from IET7600PlusControl import IET7600Plus
 import numpy as np
 import time
@@ -185,33 +172,8 @@ def enviornment_setpoint_time(temperature, humidity, delay_time):
             
         time.sleep(5)
 
-
-
-
-# set_temperature(15)
-# ezt.set_humidity_SP(1)
-# for i in range(25):
-#     time.sleep(60)
-#     print(i)
-
-# set_temperature(10)
-# for i in range(10):
-#     time.sleep(60)
-#     print(i)
-
-# set_temperature(22)
-# for i in range(3):
-#     time.sleep(60)
-#     print(i)
-
 for temp in np.linspace(30,50,50):
     enviornment_setpoint_time(temp, temp, 10)
-
-
-#ezt.set_humidity_SP(55)
-
-
-
 
 #%%
 
@@ -229,8 +191,6 @@ read_me = """
 Measuring the temperature resistance sensitivity for LIG at lowest RH and a range
 of 22C to 45C. 
 """
-
- 
 
  
 path = Path(os.getcwd())
@@ -260,9 +220,6 @@ with pd.ExcelWriter(f'{file_directory}\\Correlation Table - {file_name}.xlsx') a
 #%% 
 
 
-
-
-
 if max(data['Time (hr)'])>2:
     t_axis = 'Time (hr)'
 elif max(data['Time (min)']>2):
@@ -273,19 +230,12 @@ else:
 #%%
 # create figure and axis objects with subplots()
 fig,ax = plt.subplots()
-# make a plot
-# ax.plot(data[t_axis],
-#         data['Chamber Temperature SP (°C)'],
-#         color="green", 
-#         )
+
 ax.plot(data[t_axis],
         data['Platform Temperature (°C)'],
         color="red", 
         )
-# ax.plot(data[t_axis],
-#         data['Chamber Temperature (°C)'],
-#         color="green", 
-#         )
+
 
 # set x-axis label
 ax.set_xlabel(t_axis, fontsize = 14)
@@ -311,11 +261,7 @@ fig.savefig(f'{file_directory}\\Humidity and Resistance vs. Time - {file_name}.j
 
 # create figure and axis objects with subplots()
 fig,ax = plt.subplots()
-# make a plot
-# ax.plot(data[t_axis],
-#         data['Chamber RH SP (% RH)'],
-#         color="yellow", 
-#         )
+
 ax.plot(data[t_axis],
         data['Chamber RH (% RH)'],
         color="red", 
@@ -336,13 +282,13 @@ ax2.plot(data[t_axis], data['Resistance (kΩ)'],color="blue")
 ax2.set_ylabel("Resistance (kΩ)",color="blue",fontsize=14)
 plt.title('Humidity and Resistance vs. Time')
 plt.show()
+
 # save the plot as a file
 fig.savefig(f'{file_directory}\\Temperature and Resistance vs. Time - {file_name}.jpg',
             format='jpeg',
             dpi= 1200,
             bbox_inches='tight')
 
-#%%
 plt.figure(dpi=1200)
 
 plt.hist2d(y = data['Resistance (kΩ)'], x=data['Chamber RH (% RH)'], bins=100)
@@ -363,8 +309,6 @@ plt.savefig(f'{file_directory}\\Scatter Plot CvH- {file_name}.jpeg',format='jpeg
             dpi= 1200,
             bbox_inches='tight')
 
-
-#%%
 plt.figure(dpi=1200)
 plt.hist2d(y = data['Resistance (kΩ)'], x=data['Platform Temperature (°C)'], bins=100)
 plt.colorbar()
@@ -375,8 +319,6 @@ plt.savefig(f'{file_directory}\\2D Histogram CvT- {file_name}.jpeg',format='jpeg
             dpi= 1200,
             bbox_inches='tight')
 
-
-
 plt.figure(dpi=1200)
 plt.scatter(y = data['Resistance (kΩ)'], x=data['Platform Temperature (°C)'])
 plt.title('Resistance vs. Temperature')
@@ -386,8 +328,6 @@ plt.savefig(f'{file_directory}\\Scatter Plot CvT- {file_name}.jpeg',format='jpeg
             dpi= 1200,
             bbox_inches='tight')
 
-#%%
-
 def wind_down():    
     print('Winding Down')
     ezt.set_humidity_SP(30)
@@ -395,11 +335,8 @@ def wind_down():
     time.sleep(60*30)
     set_temperature(10)
 #%%
-
 ezt.set_humidity_SP(1)
-# time.sleep(60*20)
 set_temperature(30)
-# time.sleep(60*20)
 
 #%%   
 ptc10.__del__()

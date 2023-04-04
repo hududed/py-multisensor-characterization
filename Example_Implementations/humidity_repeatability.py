@@ -120,18 +120,11 @@ fields_names=['Time (s)',
             'Capacitance (F)',
             'Capacitance (pF)']
 
-# with open(file_name, 'a', newline='') as f:
-#     writer = csv.writer(f)
-#     writer.writerow(fields_names)
+
 print(fields_names)
 #-----------------------------------------------------------------------
 #-----------------------------------------------------------------------
 
-# set_temperature(60)
-# time.sleep(60*20)
-
-# set_temperature(-20)
-# time.sleep(60*40)
 
 fields_list = []
 

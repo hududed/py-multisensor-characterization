@@ -5,19 +5,6 @@ Created on Tue Sep  6 11:13:43 2022
 @author: Microprobe_Station
 """
 
-
-
-# c = []
-# ct = []
-# pt = []
-# # def Driver():
-# iet = IET7600Plus()
-
-# iet.set_frequency(frequency=1000)
-
-# iet.set_AC_test_type('V')
-# iet.set_AC_signal_value(0.5)
-
 from IET7600PlusControl import IET7600Plus
 import numpy as np
 import time
@@ -172,10 +159,6 @@ def enviornment_setpoint_time(temperature, humidity, delay_time):
             
         time.sleep(5)
 
-
-# # time.sleep(60*30)
-# for humidity in np.linspace(0,90,200):
-#     enviornment_setpoint_time(22, humidity, 10)
 set_temperature(30)
 ezt.set_humidity_SP(1)
 time.sleep(60*30)
@@ -270,51 +253,36 @@ else:
     t_axis = 'Time (s)'
 
 #%%
-# create figure and axis objects with subplots()
+
 fig,ax = plt.subplots()
-# make a plot
-# ax.plot(data[t_axis],
-#         data['Chamber Temperature SP (°C)'],
-#         color="green", 
-#         )
+
 ax.plot(data[t_axis],
         data['Platform Temperature (°C)'],
         color="red", 
         )
-# ax.plot(data[t_axis],
-#         data['Chamber Temperature (°C)'],
-#         color="green", 
-#         )
 
-# set x-axis label
+
 ax.set_xlabel(t_axis, fontsize = 14)
-# set y-axis label
+
 ax.set_ylabel("Temperature (°C)",
               color="red",
               fontsize=14)
 
 plt.legend(['SP', 'Platform'], loc='upper left')
-
-# twin object for two different y-axis on the sample plot
 ax2=ax.twinx()
-# make a plot with different y-axis using second axis object
 ax2.plot(data[t_axis], data['Capacitance (pF)'],color="blue")
 ax2.set_ylabel("Capacitance (pF)",color="blue",fontsize=14)
 plt.title('Temperature and Capacitance vs. Time')
 plt.show()
+
 # save the plot as a file
 fig.savefig(f'{file_directory}\\Humidity and Capacitance vs. Time - {file_name}.jpg',
             format='jpeg',
             dpi= 1200,
             bbox_inches='tight')
 
-# create figure and axis objects with subplots()
 fig,ax = plt.subplots()
-# make a plot
-# ax.plot(data[t_axis],
-#         data['Chamber RH SP (% RH)'],
-#         color="yellow", 
-#         )
+
 ax.plot(data[t_axis],
         data['Chamber RH (% RH)'],
         color="red", 
